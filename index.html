@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WCHS Archive</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #04060c;
+      --panel: #0b1124;
+      --neon-blue: #00b7ff;
+      --neon-cyan: #00fff2;
+      --text: #e6f1ff;
+      --muted: #7f93bd;
+      --glow: 0 0 10px rgba(0,183,255,.6), 0 0 30px rgba(0,183,255,.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background:
+        radial-gradient(900px 500px at 10% -10%, rgba(0,183,255,.08), transparent 40%),
+        radial-gradient(700px 400px at 90% 10%, rgba(0,255,242,.06), transparent 40%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: linear-gradient(180deg, rgba(4,6,12,.9), rgba(4,6,12,.6));
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(0,183,255,.2);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: Orbitron, sans-serif;
+      font-weight: 800;
+      letter-spacing: .1em;
+      color: var(--neon-blue);
+      text-shadow: var(--glow);
+    }
+
+    .nav a {
+      color: var(--muted);
+      margin-left: 1rem;
+      text-decoration: none;
+    }
+
+    .nav a:hover { color: var(--neon-cyan); }
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 1.25rem 2rem;
+    }
+
+    .hero h1 {
+      font-family: Orbitron, sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin: 0 0 .5rem;
+      color: var(--neon-blue);
+      text-shadow: var(--glow);
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: var(--muted);
+    }
+
+    .controls {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+
+    input, select {
+      background: var(--panel);
+      border: 1px solid rgba(0,183,255,.25);
+      color: var(--text);
+      padding: .6rem .75rem;
+      border-radius: 8px;
+    }
+
+    .archive {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 1.25rem 4rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .file {
+      background: linear-gradient(180deg, rgba(11,17,36,.9), rgba(11,17,36,.75));
+      border: 1px solid rgba(0,183,255,.25);
+      border-radius: 14px;
+      padding: 1.25rem;
+      position: relative;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .file:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(0,183,255,.25);
+    }
+
+    .file h3 {
+      margin: 0 0 .4rem;
+      font-size: 1.05rem;
+      color: var(--neon-cyan);
+    }
+
+    .file .meta {
+      font-size: .8rem;
+      color: var(--muted);
+      margin-bottom: .6rem;
+    }
+
+    .file p {
+      font-size: .9rem;
+      color: var(--text);
+    }
+
+    .tags span {
+      display: inline-block;
+      margin-right: .35rem;
+      margin-top: .4rem;
+      padding: .2rem .5rem;
+      font-size: .7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0,183,255,.35);
+      color: var(--neon-blue);
+    }
+
+    footer {
+      border-top: 1px solid rgba(0,183,255,.2);
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">WCHS ARCHIVE</div>
+      <nav>
+        <a href="#files">Files</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Digital File Archive</h1>
+    <p>
+      A structured archive of files relating to WCHS — games, projects, events,
+      media, and other recorded material. Entries are stored as individual
+      records rather than a timeline.
+    </p>
+
+    <div class="controls">
+      <input type="text" placeholder="Search files…" />
+      <select>
+        <option>All categories</option>
+        <option>Games</option>
+        <option>Media</option>
+        <option>Documents</option>
+        <option>Incidents</option>
+      </select>
+    </div>
+  </section>
+
+  <section id="files" class="archive">
+    <div class="file">
+      <h3>FILE_001 — Game Project</h3>
+      <div class="meta">Type: Game • Status: Archived</div>
+      <p>
+        Record containing information, screenshots, and notes relating to a
+        student-made game associated with WCHS.
+      </p>
+      <div class="tags">
+        <span>game</span>
+        <span>project</span>
+        <span>verified</span>
+      </div>
+    </div>
+
+    <div class="file">
+      <h3>FILE_014 — Media Compilation</h3>
+      <div class="meta">Type: Media • Status: Partial</div>
+      <p>
+        Archived media files and references connected to a notable WCHS-related
+        topic.
+      </p>
+      <div class="tags">
+        <span>media</span>
+        <span>archive</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="hero">
+    <h1>About</h1>
+    <p>
+      This archive is an independent, non-official project intended for
+      preservation and documentation. All files are organized for reference
+      purposes only.
+    </p>
+  </section>
+
+  <footer>
+    © 2026 WCHS Archive • GitHub Pages
+  </footer>
+</body>
+</html>
